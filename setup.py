@@ -2,8 +2,9 @@ import os
 import shutil
 import PyInstaller.__main__
 from contextlib import suppress
+from config import config
 
-application_name = 'Minecraft server'
+application_name = config['application_name']
 icon_path = os.path.join('assets', 'img', 'icon.ico')
 ngrok_path = os.path.join('assets', 'ngrok.exe')
 
