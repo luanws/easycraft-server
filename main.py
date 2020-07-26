@@ -9,11 +9,13 @@ from models.option import Option
 from options.exit import Exit
 from options.download_minecraft_server import DownloadMinecraftServer
 from options.start_minecraft_server import StartMinecraftServer
+from options.publish_server import PublishServer
 
 options: List[Option] = [
     Exit(),
     DownloadMinecraftServer(),
     StartMinecraftServer(),
+    PublishServer(),
 ]
 
 
