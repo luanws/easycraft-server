@@ -6,5 +6,5 @@ from utils import ngrok
 class StartMinecraftServer(Option):
     name = 'Start minecraft server'
 
-    def run(self):
-        ngrok.start()
+    async def run(self):
+        ngrok.ngrok()

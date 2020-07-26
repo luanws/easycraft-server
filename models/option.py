@@ -5,4 +5,4 @@ class Option(ABC):
     name = '?'
 
     @abstractmethod
-    def run(self): pass
+    async def run(self): pass

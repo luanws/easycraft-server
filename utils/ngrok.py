@@ -1,7 +1,10 @@
 import os
+from config import config
 
-ngrok_path = os.path.join('assets', 'ngrok')
+ngrok_path = config['path']['ngrok']
 
 
-def start():
+def ngrok():
     os.system(ngrok_path)
+
+
