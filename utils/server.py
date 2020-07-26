@@ -1,8 +1,10 @@
 import os
-import traceback
 import subprocess
+import traceback
+import threading
+
 from config import config
-from utils import console
+from utils import console, styledprint
 
 server_path = config['path']['server']
 
@@ -28,4 +30,16 @@ def start():
         os.system(command_start)
         console.clear()
 
-    subprocess.call(command_start)
+    styledprint.styled_print(
+        'Termos aceitos com sucesso',
+        color=styledprint.Color.GREEN
+    )
+    styledprint.styled_print(
+        'Iniciando servidor Minecraft...',
+        color=styledprint.Color.GREEN
+    )
+
+    def start_server():
+        subprocess.call(command_start, creationflags=subprocess.CREATE_NEW_CONSOLE)
+
+    threading.Thread(target=start_server).start()
