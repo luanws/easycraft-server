@@ -8,3 +8,7 @@ def clear():
 def pause():
     print()
     os.system('pause')
+
+
+def hr():
+    print('--------------------------------------------------')
