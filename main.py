@@ -33,7 +33,7 @@ async def start():
 
     print()
     option = None
-    with suppress(TypeError, IndexError):
+    with suppress(Exception):
         number_option = int(input('Selecione uma opção: '))
         option = options[number_option]
     if option is not None:
