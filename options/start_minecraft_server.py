@@ -1,10 +1,14 @@
+import os
+
 from models.option import Option
 from utils import styledprint
-from utils import ngrok
+from utils import server
+from utils import console
 
 
 class StartMinecraftServer(Option):
     name = 'Start minecraft server'
 
     async def run(self):
-        ngrok.ngrok()
+        server.start()
+        console.pause()

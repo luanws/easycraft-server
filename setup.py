@@ -7,6 +7,7 @@ from config import config
 application_name = config['application_name']
 icon_path = os.path.join('assets', 'img', 'icon.ico')
 ngrok_path = os.path.join('assets', 'ngrok.exe')
+server_path = os.path.join('assets', 'server.jar')
 
 assets_folder_path = os.path.join('assets')
 dist_folder_path = os.path.join('dist')
@@ -29,3 +30,4 @@ with suppress(FileExistsError):
 
 shutil.copy(icon_path, dist_folder_path)
 shutil.copy(ngrok_path, assets_dist_folder_path)
+shutil.copy(server_path, assets_dist_folder_path)
