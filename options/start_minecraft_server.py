@@ -3,7 +3,7 @@ from utils import server
 
 
 class StartMinecraftServer(Option):
-    name = 'Start minecraft server'
+    name = 'Iniciar servidor do Minecraft'
 
     async def run(self):
         server.start()

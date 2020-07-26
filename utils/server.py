@@ -2,6 +2,7 @@ import os
 import subprocess
 import traceback
 import threading
+import time
 
 from config import config
 from utils import console, styledprint
@@ -36,10 +37,12 @@ def start():
     )
     styledprint.styled_print(
         'Iniciando servidor Minecraft...',
-        color=styledprint.Color.GREEN
+        color=styledprint.Color.BLUE
     )
 
     def start_server():
         subprocess.call(command_start, creationflags=subprocess.CREATE_NEW_CONSOLE)
 
     threading.Thread(target=start_server).start()
+
+    time.sleep(3)
