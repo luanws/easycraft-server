@@ -23,7 +23,9 @@ def accept_terms() -> bool:
 
 
 def start():
+    command_start = f"java -Xmx1024M -Xms1024M -jar {server_path} nogui"
     while not accept_terms():
-        os.system(f"java -Xmx1024M -Xms1024M -jar {server_path} nogui")
+        os.system(command_start)
         console.clear()
-    os.system(f"java -Xmx1024M -Xms1024M -jar {server_path} nogui")
+
+    subprocess.call(command_start)
