@@ -3,13 +3,13 @@ from typing import List
 from contextlib import suppress
 from utils import styledprint, console
 
-from options.download_minecraft_server import DownloadMinecraftServer
 from models.option import Option
-
-ngrok_path = 'assets\\ngrok'
+from options.download_minecraft_server import DownloadMinecraftServer
+from options.start_minecraft_server import StartMinecraftServer
 
 options: List[Option] = [
     DownloadMinecraftServer(),
+    StartMinecraftServer(),
 ]
 
 
@@ -35,7 +35,6 @@ def start():
     if option is not None:
         console.clear()
         option.run()
-        console.pause()
     start()
 
 
