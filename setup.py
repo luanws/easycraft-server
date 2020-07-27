@@ -5,13 +5,13 @@ from contextlib import suppress
 from config import config
 
 application_name = config['application_name']
-icon_path = os.path.join('assets', 'img', 'icon.ico')
-ngrok_path = os.path.join('assets', 'ngrok.exe')
-server_path = os.path.join('assets', 'server.jar')
+icon_path = os.path.join('data', 'img', 'icon.ico')
+ngrok_path = os.path.join('data', 'ngrok.exe')
+server_path = os.path.join('data', 'server.jar')
 
-assets_folder_path = os.path.join('assets')
+assets_folder_path = os.path.join('data')
 dist_folder_path = os.path.join('dist')
-assets_dist_folder_path = os.path.join(dist_folder_path, 'assets')
+assets_dist_folder_path = os.path.join(dist_folder_path, 'data')
 
 PyInstaller.__main__.run([
     os.path.join('main.py'),
