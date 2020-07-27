@@ -22,7 +22,7 @@ def get_url_server(minecraft_server_download_page_url: str) -> str:
 
 
 class DownloadMinecraftServer(Option):
-    name = 'Atualizar servidor do minecraft'
+    name = 'Atualizar o Minecraft server'
 
     async def run(self):
         try:
