@@ -1,4 +1,5 @@
 import requests
+import time
 from urllib import request
 from models.option import Option
 from bs4 import BeautifulSoup
@@ -32,7 +33,7 @@ class DownloadMinecraftServer(Option):
             styledprint.info('Fazendo download do arquivo...')
             download_server(url)
             styledprint.success('Download concluído')
-            console.pause()
+            time.sleep(1)
         except Exception as e:
             styledprint.danger(e)
             console.pause()
