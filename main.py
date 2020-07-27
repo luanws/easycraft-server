@@ -26,12 +26,13 @@ async def menu():
     ))
 
     print()
+    option = None
     with suppress(Exception):
         number_option = int(input('Selecione uma opção: '))
         option = options[number_option - 1]
-        if option is not None:
-            console.clear()
-            await option.run()
+    if option is not None:
+        console.clear()
+        await option.run()
 
 
 async def start():
