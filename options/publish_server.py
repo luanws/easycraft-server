@@ -18,4 +18,4 @@ class PublishServer(Option):
             port = get_port()
             ngrok.tcp(port)
         except Exception as e:
-            styledprint.styled_print(e, color=styledprint.Color.RED)
+            styledprint.danger(e)
