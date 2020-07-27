@@ -32,6 +32,7 @@ class DeleteServer(Option):
                 with suppress(FileNotFoundError):
                     shutil.rmtree(folder)
             styledprint.success('Servidor deletado com sucesso')
+            console.pause()
         except Exception as e:
             styledprint.styled_print(e, color=styledprint.Color.RED)
             console.pause()
