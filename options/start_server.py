@@ -19,4 +19,5 @@ class StartServer(Option):
             color=styledprint.Color.GREEN
         )
 
+        server.set_property('online-mode', 'false')
         server.start(create_new_console=True)
