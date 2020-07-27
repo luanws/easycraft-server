@@ -29,7 +29,7 @@ class DownloadMinecraftServer(Option):
             styledprint.info('Buscando endereço do novo servidor na página do minecraft...')
             url = get_url_server(minecraft_server_download_page_url)
             styledprint.success(f'O endereço {url} foi encontrado')
-            styledprint.info('Fazendo download do arquivo')
+            styledprint.info('Fazendo download do arquivo...')
             download_server(url)
             styledprint.success('Download concluído')
         except Exception as e:
