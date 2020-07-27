@@ -2,13 +2,12 @@ import re
 from models.option import Option
 from utils import ngrok
 from utils import styledprint
+from utils import server
 
 
 def get_port() -> int:
-    with open('server.properties') as f:
-        properties = f.read()
-        port = re.findall(r'server-port=(\d+)', properties)[0]
-        return int(port)
+    port = int(server.get_property('server-port'))
+    return port
 
 
 class PublishServer(Option):

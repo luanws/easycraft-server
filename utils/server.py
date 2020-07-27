@@ -1,3 +1,4 @@
+import re
 import os
 import subprocess
 import traceback
@@ -34,3 +35,10 @@ def start(create_new_console=False):
         ).start()
     else:
         os.system(command_start)
+
+
+def get_property(key: str) -> str:
+    with open('server.properties') as f:
+        properties = f.read()
+        property = re.findall(rf'{key}=(.+)', properties)[0]
+        return property
