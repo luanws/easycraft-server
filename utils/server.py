@@ -2,10 +2,8 @@ import os
 import subprocess
 import traceback
 import threading
-import time
 
 from config import config
-from utils import console, styledprint
 
 server_path = config['path']['server']
 
@@ -25,24 +23,14 @@ def accept_terms() -> bool:
         return False
 
 
-def start():
+def start(create_new_console=False):
     command_start = f"java -Xmx1024M -Xms1024M -jar {server_path} nogui"
-    while not accept_terms():
+    if create_new_console:
+        threading.Thread(
+            target=lambda: subprocess.call(
+                command_start,
+                creationflags=subprocess.CREATE_NEW_CONSOLE
+            )
+        ).start()
+    else:
         os.system(command_start)
-        console.clear()
-
-    styledprint.styled_print(
-        'Termos aceitos com sucesso',
-        color=styledprint.Color.GREEN
-    )
-    styledprint.styled_print(
-        'Iniciando servidor Minecraft...',
-        color=styledprint.Color.BLUE
-    )
-
-    def start_server():
-        subprocess.call(command_start, creationflags=subprocess.CREATE_NEW_CONSOLE)
-
-    threading.Thread(target=start_server).start()
-
-    time.sleep(3)
