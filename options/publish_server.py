@@ -3,6 +3,7 @@ from models.option import Option
 from utils import ngrok
 from utils import styledprint
 from utils import server
+from utils import console
 
 
 def get_port() -> int:
@@ -19,3 +20,4 @@ class PublishServer(Option):
             ngrok.tcp(port)
         except Exception as e:
             styledprint.danger(e)
+            console.pause()

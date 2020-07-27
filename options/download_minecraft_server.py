@@ -32,6 +32,7 @@ class DownloadMinecraftServer(Option):
             styledprint.info('Fazendo download do arquivo...')
             download_server(url)
             styledprint.success('Download concluído')
+            console.pause()
         except Exception as e:
             styledprint.danger(e)
-        console.pause()
+            console.pause()
