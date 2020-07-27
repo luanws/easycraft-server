@@ -10,14 +10,8 @@ class StartServer(Option):
         while not server.accept_terms():
             server.start()
 
-        styledprint.styled_print(
-            'Termos aceitos com sucesso',
-            color=styledprint.Color.GREEN
-        )
-        styledprint.styled_print(
-            'Iniciando servidor Minecraft...',
-            color=styledprint.Color.GREEN
-        )
+        styledprint.success('Termos aceitos com sucesso')
+        styledprint.info('Iniciando servidor Minecraft...')
 
         server.set_property('online-mode', 'false')
         server.start(create_new_console=True)
