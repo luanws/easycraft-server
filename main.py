@@ -7,12 +7,12 @@ from utils import styledprint, console
 
 from models.option import Option
 from options.download_minecraft_server import DownloadMinecraftServer
-from options.start_minecraft_server import StartMinecraftServer
+from options.start_server import StartServer
 from options.publish_server import PublishServer
 
 options: List[Option] = [
     DownloadMinecraftServer(),
-    StartMinecraftServer(),
+    StartServer(),
     PublishServer(),
 ]
 
