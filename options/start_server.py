@@ -1,7 +1,11 @@
+import os
 from models.option import Option
 from utils import server
 from utils import console
 from utils import styledprint
+from config import config
+
+server_path = config['path']['server']
 
 
 class StartServer(Option):
@@ -9,6 +13,8 @@ class StartServer(Option):
 
     async def run(self):
         try:
+            if not os.path.isfile(server_path):
+                raise FileNotFoundError('Minecraft server não encontrado!')
             while not server.accept_terms():
                 server.start()
 
