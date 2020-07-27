@@ -41,7 +41,8 @@ async def start():
     console.clear()
     styledprint.styled_print(
         config['application_name'].upper(),
-        color=styledprint.Color.MAGENTA
+        color=styledprint.Color.MAGENTA,
+        attrs=[styledprint.Attribute.BOLD]
     )
 
     await menu()

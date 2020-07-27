@@ -59,3 +59,31 @@ def stylize(text: str, color: Color = None, highlight: Highlight = None, attrs: 
     if attrs is not None:
         attrs = [attr.value if isinstance(attr, Attribute) else attr for attr in attrs]
     return termcolor.colored(text, color=color, on_color=highlight, attrs=attrs)
+
+
+def success(text: str):
+    styled_print(
+        text,
+        color=Color.GREEN
+    )
+
+
+def danger(text: str):
+    styled_print(
+        text,
+        color=Color.RED
+    )
+
+
+def warning(text: str):
+    styled_print(
+        text,
+        color=Color.YELLOW
+    )
+
+
+def info(text: str):
+    styled_print(
+        text,
+        color=Color.CYAN
+    )
