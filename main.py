@@ -47,7 +47,6 @@ async def menu():
                 commands = commands.replace('  ', ' ')
             commands = [int(c) for c in commands.split()]
 
-        print(commands)
         for number_option in commands:
             await run_option(number_option)
 
