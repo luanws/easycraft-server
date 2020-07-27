@@ -1,7 +1,7 @@
 import asyncio
 
 from config import config
-from typing import List
+from typing import Tuple
 from contextlib import suppress
 from utils import styledprint, console
 
@@ -11,12 +11,21 @@ from options.start_server import StartServer
 from options.publish_server import PublishServer
 from options.delete_server import DeleteServer
 
-options: List[Option] = [
+options: Tuple[Option] = (
     DownloadMinecraftServer(),
     StartServer(),
     PublishServer(),
     DeleteServer(),
-]
+)
+
+
+async def run_option(number_option: int):
+    option = None
+    with suppress(Exception):
+        option = options[number_option - 1]
+    if option is not None:
+        console.clear()
+        await option.run()
 
 
 async def menu():
@@ -28,13 +37,19 @@ async def menu():
     ))
 
     print()
-    option = None
     with suppress(Exception):
-        number_option = int(input('Selecione uma opção: '))
-        option = options[number_option - 1]
-    if option is not None:
-        console.clear()
-        await option.run()
+        commands = input('Selecione uma opção: ')
+        try:
+            commands = [int(commands)]
+        except:
+            commands = commands.replace(',', ' ')
+            while commands.__contains__('  '):
+                commands = commands.replace('  ', ' ')
+            commands = [int(c) for c in commands.split()]
+
+        print(commands)
+        for number_option in commands:
+            await run_option(number_option)
 
 
 async def start():
