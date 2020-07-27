@@ -7,6 +7,7 @@ import threading
 from config import config
 
 server_path = config['path']['server']
+server_properties_path = os.path.join('server.properties')
 
 
 def accept_terms() -> bool:
@@ -37,8 +38,26 @@ def start(create_new_console=False):
         os.system(command_start)
 
 
-def get_property(key: str) -> str:
-    with open('server.properties') as f:
+def get_all_properties() -> str:
+    with open(server_properties_path) as f:
         properties = f.read()
-        property = re.findall(rf'{key}=(.+)', properties)[0]
-        return property
+        return properties
+
+
+def get_property(key: str) -> str:
+    properties = get_all_properties()
+    property = re.findall(rf'{key}=(.+)', properties)[0]
+    return property
+
+
+def set_property(key: str, value: str):
+    properties = get_all_properties()
+
+    new_property = f"{key}={value}"
+    try:
+        old_property = f"{key}={get_property(key)}"
+        with open(server_properties_path, 'w') as f:
+            f.write(properties.replace(old_property, new_property))
+    except IndexError:
+        with open(server_properties_path, 'a') as f:
+            f.write(new_property)
