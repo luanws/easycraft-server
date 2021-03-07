@@ -18,7 +18,6 @@ options: Tuple[Option] = (
     DeleteServer(),
 )
 
-
 async def run_option(number_option: int):
     option = None
     with suppress(Exception):
