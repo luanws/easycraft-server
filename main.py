@@ -1,4 +1,5 @@
 import asyncio
+from options.set_auth_token_ngrok import SetAuthTokenNgrok
 
 from config import config
 from typing import Tuple
@@ -16,7 +17,9 @@ options: Tuple[Option] = (
     StartServer(),
     PublishServer(),
     DeleteServer(),
+    SetAuthTokenNgrok(),
 )
+
 
 async def run_option(number_option: int):
     option = None
@@ -29,7 +32,8 @@ async def run_option(number_option: int):
 
 async def menu():
     print()
-    menu_options = "\n".join([f"({i}) {option.name}" for i, option in enumerate(options, 1)])
+    menu_options = "\n".join(
+        [f"({i}) {option.name}" for i, option in enumerate(options, 1)])
     print(styledprint.indent(
         menu_options,
         color=styledprint.Color.CYAN
